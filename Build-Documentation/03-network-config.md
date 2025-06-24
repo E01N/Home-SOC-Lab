@@ -38,7 +38,7 @@ Configure isolated, host-only networking between the Kali Linux host and the Win
   - Gateway: *(none)*
   - DNS: *(none)*
 
-![VM Network Screenshot](../networkconfig.png)
+![VM Network Screenshot](../images/networkconfig.png)
 ---
 
 ### 3. Verified Host IP (Kali)
