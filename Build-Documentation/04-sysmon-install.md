@@ -30,9 +30,9 @@ The following files were downloaded from Microsoft and placed in a shared folder
 
 Directory created:
 
---  
+```
 /home/eoin/VM-Shares/Sysmon  
---
+```
 
 Contents copied into that directory (unzipped from Microsoft Sysinternals zip).
 
@@ -56,8 +56,8 @@ In VirtualBox Manager:
 
 ### 1. Map the Shared Folder in Windows 10 VM
 
-```
-net use Z: \\VBOXSVR\SysmonShare  
+``` 
+net use Z: \VBOXSVR\SysmonShare  
 ```
 
 ### 2. Run Sysmon with Configuration
@@ -72,14 +72,26 @@ Output should confirm successful installation.
 
 ## Verification
 
-To confirm Sysmon is running:
+### 1. Check Sysmon Service
 
+``` 
+sc query sysmon64  
 ```
- sc query sysmon64
-```
--Sysmon is running 
 
 ![Sysmon Running](../images/sysmonrunning.png)
+
+### 2. Check Event Viewer for Logging
+
+In Event Viewer, navigate to:
+- `Applications and Services Logs → Microsoft → Windows → Sysmon → Operational`
+
+You should see event IDs such as:
+- `1` — Process Create
+- `3` — Network Connection Detected
+- `8` — CreateRemoteThread
+- `22` — DNS Query
+
+![Sysmon Logs in Event Viewer](../images/sysmonevents.png)
 
 ---
 
@@ -96,7 +108,7 @@ This snapshot serves as a rollback point prior to any agent deployments or attac
 ### Shared Folder Not Appearing
 
 **Issue:**  
-`\\VBoxSvr\SysmonShare` was not visible in File Explorer.
+`\VBoxSvr\SysmonShare` was not visible in File Explorer.
 
 **Resolution:**
 - Discovered **Guest Additions** had not been installed.
@@ -105,6 +117,7 @@ This snapshot serves as a rollback point prior to any agent deployments or attac
 - Rebooted the VM and confirmed shared folder auto-mounted.
 
 ---
+
 ### `tasklist | findstr sysmon` Returned No Output
 
 **Issue:**  
@@ -113,15 +126,19 @@ Expected process not shown in task list.
 **Resolution:**
 - Realized Sysmon runs as a **service**, not a traditional background process.
 - Verified service state with:
+
+``` 
+sc query sysmon64  
 ```
- sc query sysmon64
-```
+
+- Verified logs are being generated in Event Viewer under Sysmon → Operational.
 
 ---
 
-### Reflection
+## Reflection
 
 This install process highlighted:
 - The importance of **VirtualBox Guest Additions** for shared folder integration.
 - How **Windows CMD limitations** can complicate otherwise simple commands.
-- How real-world setups often deviate from "ideal" guides — and how to document the fix.
+- The value of using Event Viewer to verify logging.
+- That real-world setups often deviate from "ideal" guides — and how documenting each step and error improves clarity and reproducibility.
