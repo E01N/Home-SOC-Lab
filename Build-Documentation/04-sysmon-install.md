@@ -74,15 +74,12 @@ Output should confirm successful installation.
 
 To confirm Sysmon is running:
 
---  
-tasklist | findstr sysmon  
---
+```
+ sc query sysmon64
+```
+-Sysmon is running 
 
-You can also check in Event Viewer:
-
---  
-Applications and Services Logs → Microsoft → Windows → Sysmon → Operational  
---
+![Sysmon Running](../images/sysmonrunning.png)
 
 ---
 
