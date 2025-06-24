@@ -46,10 +46,10 @@ Home-SOC-Lab/
 |---------------------------|--------------|
 | VirtualBox installed      | ✅ Complete  |
 | Git/GitHub setup          | ✅ Complete  |
-| Windows VM created        | 🔄 In progress |
-| Networking configured     | ⬜ Pending    |
-| SIEM deployed (Wazuh)     | ⬜ Pending    |
-| Attacks simulated         | ⬜ Pending    |
-| Incident reports written  | ⬜ Pending    |
+| Windows VM created        | ✅ Complete  |
+| Networking configured     | ⬜ Pending   |
+| SIEM deployed (Wazuh)     | ⬜ Pending   |
+| Attacks simulated         | ⬜ Pending   |
+| Incident reports written  | ⬜ Pending   |
 
 ---
