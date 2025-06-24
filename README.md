@@ -33,7 +33,7 @@ Home-SOC-Lab/
 ├── README.md
 ├── Build-Documentation/
 ├── Detection-Reports/
-└── Diagrams/
+└── images/
 
 ---
 
@@ -50,4 +50,3 @@ Home-SOC-Lab/
 | Incident reports written  | ⬜ Pending    |
 
 ---
-
