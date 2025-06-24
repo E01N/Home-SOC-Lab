@@ -13,5 +13,5 @@ Install and configure VirtualBox on Kali Linux to enable creation of isolated vi
 ```bash
 sudo apt update
 sudo apt install virtualbox-qt
-
+```
 ![VirtualBox Screenshot](../images/virtualbox-installed.png)
