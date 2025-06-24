@@ -89,6 +89,8 @@ Snapshot Name: **Post-Sysmon-Install**
 
 This snapshot serves as a rollback point prior to any agent deployments or attack simulations.
 
+---
+
 ## Troubleshooting & Lessons Learned
 
 ### Shared Folder Not Appearing
