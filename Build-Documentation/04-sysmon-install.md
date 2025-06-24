@@ -88,3 +88,38 @@ To confirm Sysmon is running:
 Snapshot Name: **Post-Sysmon-Install**
 
 This snapshot serves as a rollback point prior to any agent deployments or attack simulations.
+
+## Troubleshooting & Lessons Learned
+
+### Shared Folder Not Appearing
+
+**Issue:**  
+`\\VBoxSvr\SysmonShare` was not visible in File Explorer.
+
+**Resolution:**
+- Discovered **Guest Additions** had not been installed.
+- Downloaded and manually mounted the `VBoxGuestAdditions.iso` into the VM via VirtualBox Storage settings.
+- Ran `VBoxWindowsAdditions.exe` inside Windows.
+- Rebooted the VM and confirmed shared folder auto-mounted.
+
+---
+### `tasklist | findstr sysmon` Returned No Output
+
+**Issue:**  
+Expected process not shown in task list.
+
+**Resolution:**
+- Realized Sysmon runs as a **service**, not a traditional background process.
+- Verified service state with:
+```
+ sc query sysmon64
+```
+
+---
+
+### Reflection
+
+This install process highlighted:
+- The importance of **VirtualBox Guest Additions** for shared folder integration.
+- How **Windows CMD limitations** can complicate otherwise simple commands.
+- How real-world setups often deviate from "ideal" guides — and how to document the fix.
