@@ -27,13 +27,16 @@ This project documents the creation of a home-based SOC (Security Operations Cen
 
 ---
 
-## 🗂️ Documentation Structure
+## Documentation Structure
 
+```
 Home-SOC-Lab/
 ├── README.md
 ├── Build-Documentation/
 ├── Detection-Reports/
+├── Diagrams/
 └── images/
+```
 
 ---
 
